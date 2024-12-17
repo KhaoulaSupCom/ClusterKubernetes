@@ -1,0 +1,20 @@
+# This documentation is issued from kubernetes official documentation at "https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl"
+# In this section, we are going to install kubeadm and kubelet on all of the instances and in addition kubectl on the instance that will be the master node.
+
+=> Download the Google Cloud public signing key:
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+
+=> Add the Kubernetes apt repository:
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+
+=> Update apt package index:
+sudo apt-get update
+
+=> install kubelet, kubeadm and kubectl:
+sudo apt-get install -y kubelet kubeadm kubectl
+
+=> Pin kubelet, kubeadm and kubectl versions:
+sudo apt-mark hold kubelet kubeadm kubectl
+
+===> VERY IMPORTANT: you do not have to install kubectl on Worker nodes. Just kubelet and kubeadm.
