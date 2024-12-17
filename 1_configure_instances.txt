@@ -1,0 +1,16 @@
+# In this section, we've worked with AWS with ubuntu image.
+# Follow these steps to configure your Instance:
+
+=> Get the status of the instance:
+hostnamectl status
+
+=> Change the name of the machine:
+hostnamectl set-hostname <NAME_OF_THE_MACHINE>
+
+=> Initial System Update and Preparation
+sudo apt update -y && sudo apt upgrade -y
+sudo reboot
+
+=> Disable Swap (Required for Kubernetes)
+sudo swapoff -a
+sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
