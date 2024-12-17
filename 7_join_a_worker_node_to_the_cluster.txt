@@ -1,0 +1,26 @@
+=> You should see an output similar to this:
+========================================================================================
+[preflight] Running pre-flight checks
+
+... (log output of join workflow) ...
+
+Node join complete:
+* Certificate signing request sent to control-plane and response
+  received.
+* Kubelet informed of new secure connection details.
+
+Run 'kubectl get nodes' on control-plane to see this machine join.
+========================================================================================
+
+=> Go to controlplane node "masternode" and run this command:
+kubectl get nodes
+# You should see an output that contains two nodes: "masternode" and "worker01"
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Now, configure a second worker node named "worker02" and make it join the cluster by yourself.      |                  |                                                                                                  |
+----------------------------------------------------------------------------------------------------------------------------------------
