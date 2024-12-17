@@ -20,8 +20,3 @@ EOF
 => Apply sysctl params without reboot:
 sudo sysctl --system
 
-
-
---------------------------------------------------------------------
-Now you're a network expert. Let's move on to the next step.        |
---------------------------------------------------------------------
