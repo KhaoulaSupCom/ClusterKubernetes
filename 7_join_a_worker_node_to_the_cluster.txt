@@ -1,8 +1,10 @@
 => You should see an output similar to this:
 ========================================================================================
-[preflight] Running pre-flight checks
+ Running pre-flight checks
 
-... (log output of join workflow) ...
+In Master Node ;
+
+kubeadm token create --print-join-command
 
 Node join complete:
 * Certificate signing request sent to control-plane and response
