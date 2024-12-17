@@ -1,0 +1,23 @@
+
+# This documentation is issued from kubernetes official documentation at "https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/"
+# In this section, we are going to create a kubernetes cluster with one Master node and one worker node.
+
+=> Initialize controlplane node:
+sudo kubeadm init
+# After running this command, you have to wait a few minutes. 
+
+=> Configure access to control the cluster:
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+=> Verfy your administration access with kube controller utility "kubectl":
+kubectl get pods -A
+# You should see an output containing the pods running in the kube-system namespace.
+
+=====> config worker if you have a problem 
+mkdir -p ~/.kube
+sudo cp /etc/kubernetes/kubelet.conf ~/.kube/config
+sudo chown $(id -u):$(id -g) ~/.kube/config 
+
+sudo chmod 644 /var/lib/kubelet/pki/kubelet-client-current.pem
